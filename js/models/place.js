@@ -1,0 +1,1 @@
+var PlaceModel = Backbone.Model.extend({});
