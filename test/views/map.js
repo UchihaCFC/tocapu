@@ -1,4 +1,4 @@
-var map = new MapView();
+var map = true;
 
 describe('Map', function() {
   it ('should return true', function() {

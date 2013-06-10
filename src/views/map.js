@@ -3,5 +3,8 @@ var MapView = Backbone.View.extend({
   id: '#map',
   createMap: function() {
     
+  },
+  createLayer: function() {
+    
   }
 });

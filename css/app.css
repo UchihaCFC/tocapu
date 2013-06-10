@@ -2,12 +2,3 @@
 body {
   font-size: 13px;
 }
-
-/* line 5, ../compass/scss/app.scss */
-a {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-}
