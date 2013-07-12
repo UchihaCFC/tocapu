@@ -3,7 +3,7 @@ require.config({
   paths: {
     jquery: 'vendor/jquery/jquery',
     cartodb: 'vendor/cartodb.js/dist/cartodb.nojquery',
-    map: 'app/js/views/map'
+    map: 'app/javascripts/views/map'
   },
   shim: {
     cartodb: {

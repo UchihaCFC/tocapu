@@ -1,60 +1,37 @@
-module.exports = function(grunt) {
+/*global grunt*/
+
+module.exports = function (grunt) {
+  'use strict';
 
   grunt.initConfig({
-    compass: {
-      dist: {
-        options: {
-          sassDir: 'compass/scss',
-          cssDir: 'css',
-          javascriptsDir: 'compass/js',
 
-        }
-      }
-    },
-    concat: {
-      dist: {
-        src: [
-          'src/views/*',
-          'src/app.js'
-        ],
-        dest: 'js/app.js'
-      }
-    },
-    jasmine: {
-      dist: {
-        amd: true,
-        src: 'src/**/*.js',
-        options: {
-          specs: 'test/**/*.js',
-          helpers: [
-            'vendor/jquery/jquery.js',
-            'vendor/underscore/underscore.js',
-            'vendor/backbone/backbone.js'
-          ]
-        }
-      }
-    },
     watch: {
+      jasmine: {
+        pivotal: {
+          src: 'app/**/*.js',
+          options: {
+            specs: 'test/**/*.js'
+          }
+        }
+      },
       scripts: {
         files: [
-          'src/*/*.js',
-          'src/*.js'
+          'app/**/*.js'
         ],
         tasks: [
-          'concat'
+          'jasmine'
         ],
         options: {
-          nospawn: true,
-        },
-      },
+          nospawn: true
+        }
+      }
     }
+
   });
 
-  grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['compass', 'concat', 'jasmine']);
+  grunt.registerTask('default', ['jasmine']);
 
 };
