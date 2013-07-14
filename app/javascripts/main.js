@@ -12,6 +12,9 @@ require.config({
     },
     jquery: {
       exports: 'jquery'
+    },
+    map:  {
+      exports: 'MapView'
     }
   }
 });

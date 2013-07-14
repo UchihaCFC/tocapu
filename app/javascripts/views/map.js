@@ -1,5 +1,3 @@
-/*global L, Backbone, define*/
-
 define(['jquery', 'cartodb'], function ($, cartodb) {
   'use strict';
 
