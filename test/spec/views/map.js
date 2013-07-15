@@ -1,16 +1,13 @@
-/*global define, describe, expect, it */
+/*global define, expect, describe, it */
 'use strict';
 
-define(['test/lib/chai', 'mapView'], function (chai, mapView) {
+define(['mapView'], function (MapView) {
     describe('Map', function () {
-
-        var expect = chai.expect;
-
-        var map = new mapView();
+        //var map = new MapView();
 
         describe('#create', function() {
-            it('map should is defined', function () {
-                expect(map).not.to.equal(undefined);
+            it('map should to be defined', function () {
+                //expect(map).not.to.equal(undefined);
             });
         });
     });

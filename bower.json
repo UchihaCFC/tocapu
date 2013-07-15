@@ -10,6 +10,6 @@
     "jquery": "~2.0.2",
     "handlebars": "~1.0.0",
     "requirejs": "~2.1.8",
-    "cartodb.js": "3.0.0"
+    "cartodb.js": "git@github.com:CartoDB/cartodb.js.git#~3.0.0"
   }
 }
