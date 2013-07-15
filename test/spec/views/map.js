@@ -1,8 +1,10 @@
 /*global define, describe, expect, it */
 'use strict';
 
-define(['mapView'], function (mapView) {
+define(['test/lib/chai', 'mapView'], function (chai, mapView) {
     describe('Map', function () {
+
+        var expect = chai.expect;
 
         var map = new mapView();
 
