@@ -2,4 +2,4 @@
 .grunt
 _SpecRunner.html
 node_modules
-app/vendor
+vendor
