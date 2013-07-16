@@ -14,7 +14,7 @@ module.exports = function (grunt) {
             all: ['test/index.html']
         },
         compass: {
-            dev: {
+            app: {
                 options: {
                     sassDir: 'app/styles/scss',
                     cssDir: 'app/styles/css'
@@ -32,6 +32,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('default', ['jshint', 'mocha_phantomjs', 'compass:dev']);
+    grunt.registerTask('default', ['jshint', 'mocha_phantomjs', 'compass:app']);
 
 };

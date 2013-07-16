@@ -3,8 +3,8 @@ require.config({
     paths: {
         jquery: 'vendor/jquery/jquery',
         cartodb: 'vendor/cartodb.js/dist/cartodb.nojquery',
-        mocha: 'test/lib/mocha/mocha',
-        chai: 'test/lib/chai/chai'
+        mocha: 'vendor/mocha/mocha',
+        chai: 'vendor/chai/chai'
     },
     shim: {
         cartodb: {
@@ -23,7 +23,6 @@ require(['require', 'mocha'], function (require, mocha) {
     mocha.setup('bdd');
 
     require([
-        'test/spec/test-spec',
         'test/spec/views/map'
     ], function () {
         (window.mochaPhantomJS || mocha).run();
