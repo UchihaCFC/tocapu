@@ -9,11 +9,15 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc'
             }
         },
-        mocha: {
+        jasmine: {
             all: {
-                src: ['test/index.html'],
+                //src: ['../app/scripts/**/*.js'],
                 options: {
-                    run: true
+                    specs: 'test/spec/**/*.js',
+                    template: require('grunt-template-jasmine-requirejs'),
+                    templateOptions: {
+                        requireConfigFile: 'test/config.js'
+                    }
                 }
             }
         },
@@ -24,7 +28,7 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-mocha');
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['jshint', 'mocha']);
