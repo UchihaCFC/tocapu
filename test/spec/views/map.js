@@ -1,12 +1,21 @@
-/*global define, expect, describe, it */
-'use strict';
+define([
+    'chai',
+    'jquery',
+    'app/scripts/views/map'
+],  function (Chai, $, MapView) {
+        'use strict';
 
-define(['app/scripts/views/map'], function(MapView) {
-    var map = new MapView();
+        var expect = Chai.expect;
 
-    describe('Map', function () {
-        it('created correctly', function() {
-            expect(map).not.toBe(undefined);
+        describe('#Views map', function () {
+            beforeEach(function () {
+                this.map = new MapView();
+            });
+
+            describe('@Create', function () {
+                it('map should a instance MapView', function () {
+                    expect(this.map).to.instanceOf(MapView);
+                });
+            });
         });
     });
-});
