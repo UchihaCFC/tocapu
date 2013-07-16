@@ -21,6 +21,19 @@ module.exports = function (grunt) {
                 }
             }
         },
+        compass: {
+            dev: {
+                options: {
+                    sassDir: 'app/styles/scss',
+                    cssDir: 'app/styles/css'
+                }
+            },
+            dist: {
+                options: {
+                    environment: 'production'
+                }
+            }
+        },
         watch: {
             files: ['<%= jshint.files %>'],
             tasks: ['jshint', 'jasmine']
@@ -28,9 +41,10 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['jshint', 'jasmine']);
+    grunt.registerTask('default', ['jshint', 'jasmine', 'compass:dev']);
 
 };
