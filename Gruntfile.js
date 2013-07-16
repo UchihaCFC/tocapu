@@ -21,7 +21,6 @@ module.exports = function (grunt) {
             files: ['<%= jshint.files %>'],
             tasks: ['jshint', 'jasmine']
         }
-
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');

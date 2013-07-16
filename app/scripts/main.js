@@ -11,7 +11,7 @@ require.config({
             exports: 'cartodb'
         },
         jquery: {
-            exports: 'jquery'
+            exports: '$'
         }
     }
 });
