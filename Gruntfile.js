@@ -14,10 +14,22 @@ module.exports = function (grunt) {
             all: ['test/index.html']
         },
         compass: {
+            options: {
+                sassDir: 'app/styles',
+                cssDir: '.tmp/styles',
+                generatedImagesDir: '.tmp/images/generated',
+                imagesDir: 'app/images',
+                javascriptsDir: 'app/scripts',
+                fontsDir: 'app/fonts',
+                importPath: 'vendor',
+                httpImagesPath: '/images',
+                httpGeneratedImagesPath: '/images/generated',
+                httpFontsPath: '/styles/fonts',
+                relativeAssets: false
+            },
             app: {
                 options: {
-                    sassDir: 'app/styles/scss',
-                    cssDir: 'app/styles/css'
+                    debugInfo: true
                 }
             },
             dist: {
@@ -27,8 +39,10 @@ module.exports = function (grunt) {
             }
         },
         watch: {
-            files: ['<%= jshint.files %>'],
-            tasks: ['jshint', 'mocha_phantomjs']
+            compass: {
+                files: ['app/styles/{,*/}*.{scss,sass}'],
+                tasks: ['compass:app']
+            }
         }
     });
 

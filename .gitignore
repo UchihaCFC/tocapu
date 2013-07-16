@@ -1,9 +1,5 @@
 .DS_Store
-.grunt
 .tmp
 .sass-cache
-_SpecRunner.html
 node_modules
 vendor
-
-app/styles/css/*
