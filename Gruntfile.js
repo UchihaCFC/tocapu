@@ -1,25 +1,17 @@
-'use strict';
-
 module.exports = function (grunt) {
+    'use strict';
+
+    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
     grunt.initConfig({
         jshint: {
-            files: ['*.js', 'app/scripts/**/*.js', 'test/spec/**/*.js', 'test/SpecRunner.js'],
+            files: ['app/scripts/**/*.js', 'test/spec/**/*.js', 'test/specRunner.js'],
             options: {
                 jshintrc: '.jshintrc'
             }
         },
-        jasmine: {
-            all: {
-                //src: ['../app/scripts/**/*.js'],
-                options: {
-                    specs: 'test/spec/**/*.js',
-                    template: require('grunt-template-jasmine-requirejs'),
-                    templateOptions: {
-                        requireConfigFile: 'test/config.js'
-                    }
-                }
-            }
+        mocha_phantomjs: {
+            all: ['test/index.html']
         },
         compass: {
             dev: {
@@ -36,15 +28,10 @@ module.exports = function (grunt) {
         },
         watch: {
             files: ['<%= jshint.files %>'],
-            tasks: ['jshint', 'jasmine']
+            tasks: ['jshint', 'mocha_phantomjs']
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.loadNpmTasks('grunt-contrib-jasmine');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-
-    grunt.registerTask('default', ['jshint', 'jasmine', 'compass:dev']);
+    grunt.registerTask('default', ['jshint', 'mocha_phantomjs', 'compass:dev']);
 
 };

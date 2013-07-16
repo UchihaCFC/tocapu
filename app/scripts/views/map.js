@@ -1,14 +1,14 @@
-/*global define, Backbone, L */
-
 define(['jquery', 'cartodb'], function ($, cartodb) {
     'use strict';
 
     var MapView = Backbone.View.extend({
         tagName: 'div',
         id: 'map',
+
         initialize: function () {
             this.createMap();
         },
+
         createMap: function () {
             var map = L.map(this.id, {
                 center: [40, -4],

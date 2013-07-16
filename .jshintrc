@@ -18,5 +18,17 @@
     "strict": true,
     "trailing": true,
     "smarttabs": true,
-    "jquery": true
+    "jquery": true,
+
+    "globals": {
+        "describe": true,
+        "it": true,
+        "before": true,
+        "beforeEach": true,
+        "Backbone": true,
+        "after": true,
+        "afterEach": true,
+        "define": true,
+        "L": true
+    }
 }
