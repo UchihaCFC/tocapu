@@ -10,12 +10,12 @@ First open Terminal.
 
 Install Bower and Grunt Client
 
-	npm install -g bower grunt-cli
+	npm install -g bower grunt-cli phantomjs
 
 Install project Node dependencies
 
 	npm install
-    
+
 Now, install front end dependencies with Bower
 
 	bower install
@@ -23,7 +23,7 @@ Now, install front end dependencies with Bower
 To end, run! This command run test, concat, minify, check syntax and optimize:
 
 	grunt
-	
+
 And this command watch next changes for run the tasks again.
 
 	grunt test

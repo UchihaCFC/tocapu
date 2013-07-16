@@ -26,6 +26,6 @@ require(['require', 'mocha'], function (require, mocha) {
         'test/spec/test-spec',
         'test/spec/views/map'
     ], function () {
-        mocha.run();
+        (window.mochaPhantomJS || mocha).run();
     });
 });
