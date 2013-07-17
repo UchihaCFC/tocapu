@@ -10,6 +10,75 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc'
             }
         },
+        clean: {
+            app: {
+                files: [{
+                    dot: true,
+                    src: ['.tmp']
+                }]
+            },
+            dist: {
+                files: [{
+                    dot: true,
+                    src: ['.tmp', 'dist']
+                }]
+            }
+        },
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: 'app',
+                    dest: 'dist',
+                    src: [
+                        //'images/{,*/}*.{jpg,png}',
+                        'fonts/*',
+                        'lib/*',
+                        'templates/*'
+                    ]
+                }]
+            }
+        },
+        imagemin: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'app/images',
+                    src: '{,*/}*.{png,jpg,jpeg}',
+                    dest: 'dist/images'
+                }]
+            }
+        },
+        requirejs: {
+            dist: {
+                options: {
+                    baseUrl: 'app/scripts',
+                    out: 'dist/scripts/main.js',
+                    mainConfigFile: 'app/scripts/main.js',
+                    include: 'main',
+                    optimize: 'uglify',
+                    preserveLicenseComments: false,
+                    useStrict: true,
+                    wrap: true
+                }
+            }
+        },
+        cssmin: {
+            dist: {
+                files: {
+                    'dist/styles/main.css': [
+                        'app/styles/{,*/}*.css',
+                        '.tmp/styles/{,*/}*.css'
+                    ]
+                }
+            }
+        },
+        bower: {
+            all: {
+                rjsConfig: 'app/scripts/main.js'
+            }
+        },
         mocha_phantomjs: {
             all: ['test/index.html']
         },
@@ -46,6 +115,21 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('default', ['jshint', 'mocha_phantomjs', 'compass:app']);
+    grunt.registerTask('build', [
+        'jshint',
+        //'mocha_phantomjs',
+        'clean:dist',
+        'requirejs:dist',
+        'compass:dist',
+        'cssmin',
+        'imagemin',
+        'copy:dist'
+    ]);
+
+    grunt.registerTask('default', [
+        'jshint',
+        'mocha_phantomjs',
+        'compass:app'
+    ]);
 
 };

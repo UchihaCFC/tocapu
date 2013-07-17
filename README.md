@@ -29,3 +29,7 @@ And this command watch next changes for run the tasks again.
 	grunt test
 
 To stop grunt press Ctrl + C on Terminal
+
+## Deploy
+
+    grunt build

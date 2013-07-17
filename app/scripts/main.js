@@ -1,8 +1,7 @@
 require.config({
-    baseUrl: './',
     paths: {
-        jquery: '../vendor/jquery/jquery',
-        cartodb: '../vendor/cartodb.js/dist/cartodb.nojquery'
+        jquery: '../../vendor/jquery/jquery',
+        cartodb: '../../vendor/cartodb.js/dist/cartodb.nojquery'
     },
     shim: {
         cartodb: {
@@ -12,7 +11,7 @@ require.config({
     }
 });
 
-require(['scripts/views/map'], function (MapView) {
+require(['views/map'], function (MapView) {
     'use strict';
 
     var app = {};
