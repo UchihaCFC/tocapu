@@ -5,7 +5,11 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         jshint: {
-            files: ['app/scripts/**/*.js', 'test/spec/**/*.js', 'test/specRunner.js'],
+            files: [
+                'app/scripts/**/*.js',
+                'test/spec/**/*.js',
+                'test/specRunner.js'
+            ],
             options: {
                 jshintrc: '.jshintrc'
             }
@@ -117,13 +121,18 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'jshint',
-        //'mocha_phantomjs',
+        'mocha_phantomjs',
         'clean:dist',
         'requirejs:dist',
         'compass:dist',
         'cssmin',
         'imagemin',
         'copy:dist'
+    ]);
+
+    grunt.registerTask('test', [
+        'jshint',
+        'mocha_phantomjs'
     ]);
 
     grunt.registerTask('default', [
